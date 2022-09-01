@@ -10,4 +10,8 @@ export class AppController {
   getHello(@Res() res: Response): void {
     return res.render('index')
   }
+  @Get('home')
+  getHome(@Res() res: Response): void {
+    return res.render('index')
+  }
 }

@@ -10,37 +10,36 @@
       media='screen'
       href='/css/login.css'
     />
-    <script>
-      const login = () =>{
-        c
-      }
-    </script>
+    <script src='/js/comman.js'></script>
   </head>
   <body>
-    <form action='action_page.php' method='post'>
-
+    <form onsubmit='event.preventDefault();'>
       <div class='container'>
-        <label for='uname'><b>Username</b></label>
-        <input type='text' placeholder='Enter Username' name='uname' required />
+        <label for='email'><b>email</b></label>
+        <input
+          type='text'
+          placeholder='Enter email'
+          name='email'
+          id='email'
+          required
+        />
 
         <label for='psw'><b>Password</b></label>
         <input
           type='password'
           placeholder='Enter Password'
-          name='psw'
+          name='password'
           required
         />
 
-        <button type='submit'>Login</button>
-        <label>
-          <input type='checkbox' checked='checked' name='remember' />
-          Remember me
-        </label>
+        <button type='submit' onclick="login()">Login</button>
+        <div class='psw'>
+          <span > <a href='#'>Forgot password?</a></span>
+        </div>
       </div>
 
-      <div class='container' style='background-color:#f1f1f1'>
-        <button type='button' class='cancelbtn'>Cancel</button>
-        <span class='psw'> <a href='#'>Forgot password?</a></span>
+      <div class='container text-center' style='background-color:#f1f1f1'>
+        <p>Don't have an account? <a href='register'>Register here</a> </p>
       </div>
     </form>
   </body>

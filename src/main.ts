@@ -10,6 +10,8 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.setViewEngine('hbs');
-  await app.listen(3000);
+  await app.listen(3000, () => {
+    console.log('Port servet in http://localhost:3000')
+  });
 }
 bootstrap();
