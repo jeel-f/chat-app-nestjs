@@ -1,0 +1,58 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Chat</title>
+    <link rel='stylesheet' href='/css/chat.css' />
+      <script src='/socket.io/socket.io.js'></script>
+    <script>
+      if(!window.io){ window.io = io; }
+    </script>
+    <script src='/js/socket.js'></script>
+    <script src='/js/comman.js'></script>
+  </head>
+  <body>
+
+    <div class='container'>
+      <div class='message'>
+
+        <textarea
+          class='message__textarea'
+          name='message'
+          rows='1'
+          id='message'
+          placeholder='Aa'
+        ></textarea>
+
+        <div class='submit'>
+          <button
+            type='submit'
+            onclick='sendMsg()'
+            id='submitbutton'
+            aria-label='submitbutton'
+            class='submitbutton'
+          ><svg
+              xmlns='http://www.w3.org/2000/svg'
+              aria-hidden='true'
+              width='35'
+              height='35'
+              preserveAspectRatio='xMidYMid meet'
+              viewBox='0 0 24 24'
+            >
+              <path
+                fill='white'
+                d='m16.707 11.293l-4-4a1.004 1.004 0 0 0-1.414 0l-4 4a1 1 0 0 0 1.414 1.414L11 10.414V16a1 1 0 0 0 2 0v-5.586l2.293 2.293a1 1 0 0 0 1.414-1.414Z'
+              ></path>
+              <path
+                fill='currentColor'
+                d='M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm4.707 10.707a1 1 0 0 1-1.414 0L13 10.414V16a1 1 0 0 1-2 0v-5.586l-2.293 2.293a1 1 0 0 1-1.414-1.414l4-4a1.004 1.004 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414Z'
+                opacity='1'
+              ></path>
+            </svg></button>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

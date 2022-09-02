@@ -3,7 +3,7 @@ const headers = () => {
   return { "content-type": "application/json" }
 }
 const apiPost = async (url, value = null) => await fetch(url, { method: "POST", body: value ? JSON.stringify(value) : {}, headers: headers() }).then(res => res.json());
-const apiGet = async(url) => await fetch(url).then(res=> res.json());
+const apiGet = async (url) => await fetch(url).then(res => res.json());
 
 const AuthGuard = () => {
   if (localStorage.getItem('token')) {
@@ -62,7 +62,25 @@ const prePareView = async (data) => {
   let view = ''
   for (let i = 0; i < data.length; i++) {
     const e = data[i];
-    view+= `<div class="userEmail"> <a href="chat/${e._id}">${e.email}</a>  </div>`
+    view += `<div class="userEmail"> <a href="chat/${e._id}">${e.email}</a>  </div>`
   }
   document.getElementById('list').innerHTML = view;
 }
+
+const sendMsg = () => {
+  const data = {
+    message: document.querySelector('textarea[name="message"]').value,
+    reciverId: window.location.href.split('/').at(-1),
+  }
+  console.log("sendMsg ~ data", data)
+  setTimeout(() => {
+    socket.emit("chat", data);
+  }, 200);
+}
+
+const getUser = () => {
+
+}
+
+
+

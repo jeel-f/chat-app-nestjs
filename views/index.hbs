@@ -12,14 +12,16 @@
       rel='stylesheet'
       href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
     />
+    <script src='/socket.io/socket.io.js'></script>
+    <script>
+      if(!window.io){ window.io = io; }
+    </script>
+    <script src='/js/socket.js'></script>
+
     <title>Chat App</title>
     <style>
-      .userEmail{ padding: 10px; border-bottom: 1px solid lightgray;  }
-      a {
-        text-decoration: none;
-        color: black;
-        text-transform: capitalize;
-      }
+      .userEmail{ padding: 10px; border-bottom: 1px solid lightgray; } a {
+      text-decoration: none; color: black; text-transform: capitalize; }
     </style>
     <script src='/js/comman.js'></script>
 
