@@ -10,7 +10,7 @@ export class MongoExceptionFilter implements ExceptionFilter {
     switch (exception.code) {
       case 11000:
         error = {
-          statusCode: HttpStatus.FOUND,
+          statusCode: HttpStatus.NOT_FOUND,
           error: exception.errmsg,
           message: exception.name
         }

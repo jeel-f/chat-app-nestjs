@@ -68,18 +68,23 @@ const prePareView = async (data) => {
 }
 
 const sendMsg = () => {
+  const textArea = document.querySelector('textarea[name="message"]');
   const data = {
-    message: document.querySelector('textarea[name="message"]').value,
+    message: textArea.value,
     reciverId: window.location.href.split('/').at(-1),
   }
-  console.log("sendMsg ~ data", data)
-  setTimeout(() => {
-    socket.emit("chat", data);
-  }, 200);
+  textArea.value = "";
+  socket.emit("chat", data);
+  messageAppend(data);
 }
 
-const getUser = () => {
-
+const messageAppend = (data) => {
+  const ele = document.getElementById('chat')
+  if(ele){
+    const side = (data?.reciverId === window.location.href.split('/').at(-1)) ? 'right' : 'left';
+    let template = `<div class="${side}">${data.message}</div>`
+    ele.innerHTML += template;
+  }
 }
 
 
